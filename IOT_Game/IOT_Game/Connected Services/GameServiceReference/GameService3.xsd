@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IOT.Entities.ViewModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IOT.Entities.ViewModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:32596/GameService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IOT.Entities" />
+  <xs:complexType name="QuestionViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DodID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/IOT.Entities" minOccurs="0" name="QuestionOption" nillable="true" type="q1:ArrayOfQuestionOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionViewModel" nillable="true" type="tns:QuestionViewModel" />
+  <xs:complexType name="ArrayOfQuestionViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionViewModel" nillable="true" type="tns:QuestionViewModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionViewModel" nillable="true" type="tns:ArrayOfQuestionViewModel" />
+  <xs:complexType name="ArrayOfRankViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RankViewModel" nillable="true" type="tns:RankViewModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRankViewModel" nillable="true" type="tns:ArrayOfRankViewModel" />
+  <xs:complexType name="RankViewModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PrizeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PrizeTotal" type="xs:int" />
+      <xs:element minOccurs="0" name="RankingID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RankViewModel" nillable="true" type="tns:RankViewModel" />
+  <xs:complexType name="ArrayOfQuestionOptionView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuestionOptionView" nillable="true" type="tns:QuestionOptionView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuestionOptionView" nillable="true" type="tns:ArrayOfQuestionOptionView" />
+  <xs:complexType name="QuestionOptionView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerStatus" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AnswerText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OptionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OptionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="QuestionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionOptionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuestionOptionView" nillable="true" type="tns:QuestionOptionView" />
+</xs:schema>

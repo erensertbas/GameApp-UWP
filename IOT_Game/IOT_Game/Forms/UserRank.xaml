@@ -1,0 +1,110 @@
+﻿<Page
+    x:Class="IOT_Game.Forms.UserRank"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IOT_Game.Forms"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:models="using:Microsoft.Toolkit.Uwp.SampleApp.Models"
+    Loaded="Page_Loaded"
+    Background="White">
+    <Grid>
+
+        <ListView Name="listView" ItemsSource="{x:Bind rankViewModel}">
+            <ListView.Header>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0">
+                    <TextBlock Margin="12"
+FontSize="48"
+FontWeight="Bold"
+Text="Başarılı Yarışmacılar"
+TextAlignment="Center"
+                               Foreground="Black"
+TextWrapping="WrapWholeWords" />
+                    <TextBlock Margin="12,0,12,12"
+VerticalAlignment="Center"
+ Foreground="Black"
+                               FontWeight="Bold"
+Text=" Kim Milyoner Olmak İster ? Yarışmasında belli bir hedefe ulaşan yarışmacılarımızın listesidir. "
+TextAlignment="Center"
+TextWrapping="WrapWholeWords" />
+                </StackPanel>
+
+
+            </ListView.Header>
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <Grid MinHeight="100" Background="LightGray" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="logo"
+Grid.Column="0"
+Width="60"
+Height="60"
+Margin="0,0,24,0"
+Source="ms-appx:///Assets/yildiz.png" />
+                        
+                        <TextBlock Grid.Column="1"
+                                 VerticalAlignment="Center"
+                                 FontWeight="Bold" FontSize="20"
+                                 Text="{Binding Username}"
+                                 TextTrimming="CharacterEllipsis" /> 
+                        <TextBlock Grid.Column="3"
+VerticalAlignment="Center"
+                                    FontWeight="Bold" FontSize="20"
+Text="{Binding PrizeTotal}" 
+TextTrimming="CharacterEllipsis" />
+                        <TextBlock Grid.Column="4"
+VerticalAlignment="Center"
+                                    FontWeight="Bold" FontSize="20"
+Text="  TL" 
+TextTrimming="CharacterEllipsis" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Padding" Value="12,12,24,12" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <Grid></Grid>
+
+        <!--<controls:DataGrid Name="RankDataGrid"
+          ItemsSource="{x:Bind rankViewModel}"
+          AutoGenerateColumns="False"
+          AlternatingRowBackground="LightBlue"
+          AreRowDetailsFrozen="True"
+          Background="White"
+          CanUserReorderColumns="False"
+          CanUserResizeColumns="True"
+          CanUserSortColumns="True"
+          GridLinesVisibility="All"
+          HeadersVisibility="Column"
+          SelectionMode="Single">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn Header="Kullanıcı"
+                                         Binding="{Binding Username}"
+                                         IsReadOnly="True" />
+
+                <controls:DataGridTextColumn Header="Ödülü"
+                                         Binding="{Binding PrizeTotal}"
+                                         IsReadOnly="True"/>
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>-->
+   
+    
+    
+    </Grid>
+
+
+
+
+</Page>
